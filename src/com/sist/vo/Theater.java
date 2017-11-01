@@ -4,7 +4,15 @@ public class Theater {
 	private int theaterNo;
 	private String location;
 	private String information;
+	private String theaterName;
 	
+	
+	public String getTheaterName() {
+		return theaterName;
+	}
+	public void setTheaterName(String theaterName) {
+		this.theaterName = theaterName;
+	}
 	public int getTheaterNo() {
 		return theaterNo;
 	}

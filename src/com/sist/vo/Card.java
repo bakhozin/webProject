@@ -1,13 +1,15 @@
 package com.sist.vo;
 
 public class Card {
-	private int cardNum;
+	private String cardNum;
 	private String mid;
 	private String pwd;
-	public int getCardNum() {
+
+	
+	public String getCardNum() {
 		return cardNum;
 	}
-	public void setCardNum(int cardNum) {
+	public void setCardNum(String cardNum) {
 		this.cardNum = cardNum;
 	}
 	public String getMid() {

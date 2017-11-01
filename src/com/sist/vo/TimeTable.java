@@ -1,9 +1,11 @@
 package com.sist.vo;
 
 public class TimeTable {
+	
 	private int time_seq;
 	private int theaterNo;
 	private String mcode;
+	
 	
 	public int getTime_seq() {
 		return time_seq;

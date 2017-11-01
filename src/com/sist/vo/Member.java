@@ -2,6 +2,7 @@ package com.sist.vo;
 
 public class Member {
 	private String mid;
+	private String pwd;
 	private String name;
 	private String phone;
 	private String gender;
@@ -12,6 +13,12 @@ public class Member {
 	}
 	public void setMid(String mid) {
 		this.mid = mid;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 	public String getName() {
 		return name;

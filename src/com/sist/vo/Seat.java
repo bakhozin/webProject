@@ -2,27 +2,27 @@ package com.sist.vo;
 
 public class Seat {
 
-	private int Seat_seq;
-	private int TheaterNo;
-	private int seatNum;
+	private int seat_seq;
+	private int theaterNo;
+	private int seatNo;
 	private String status;
 	public int getSeat_seq() {
-		return Seat_seq;
+		return seat_seq;
 	}
 	public void setSeat_seq(int seat_seq) {
-		Seat_seq = seat_seq;
+		this.seat_seq = seat_seq;
 	}
 	public int getTheaterNo() {
-		return TheaterNo;
+		return theaterNo;
 	}
 	public void setTheaterNo(int theaterNo) {
-		TheaterNo = theaterNo;
+		this.theaterNo = theaterNo;
 	}
-	public int getSeatNum() {
-		return seatNum;
+	public int getSeatNo() {
+		return seatNo;
 	}
-	public void setSeatNum(int seatNum) {
-		this.seatNum = seatNum;
+	public void setSeatNo(int seatNo) {
+		this.seatNo = seatNo;
 	}
 	public String getStatus() {
 		return status;
