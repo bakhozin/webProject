@@ -146,8 +146,8 @@
   <!-- 본문 -->
   <div class="col-sm-6" style="float: right;">
     <div class="container">
-      <h1>마이페이지  sdfasdfasdfasdf</h1>
-      <p>마이페이지  sdfasdfasdfasdf</p>
+      <h1>작업변경해볼게.desktop</h1>
+      <p>git test용 작업변경중이야.desktop</p>
     </div>
   </div>
   <!-- /본문 -->
