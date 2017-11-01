@@ -146,8 +146,8 @@
   <!-- 본문 -->
   <div class="col-sm-6" style="float: right;">
     <div class="container">
-      <h1>작업변경해볼게.desktop</h1>
-      <p>git test용 작업변경중이야.desktop</p>
+      <h1>노트북에서 GIT 마지막체크.laptop</h1>
+      <p>노트북에서 작동여부 마지막체크.laptop</p>
     </div>
   </div>
   <!-- /본문 -->
