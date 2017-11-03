@@ -94,7 +94,7 @@ public class GiftyconDAO {
 		
 		Giftycon giftycon = null;
 		
-		String sql = "SELECT * FROM GIFTYCON GIFTYCONCODE = ?";
+		String sql = "SELECT * FROM GIFTYCON WHERE GIFTYCONCODE = ?";
 		
 		try {
 			ps = con.prepareStatement(sql);

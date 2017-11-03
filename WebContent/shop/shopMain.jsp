@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,11 +37,11 @@
 
 						str += "<div class='col-md-4 top_brand_left' style='float: left; margin-bottom:30px;'><div class='snipcart-thumb' style='margin-bottom:5px;'>"
 							 +"<h4>"+response[i].giftyconName+"</h4>"
-							 +"<a href='single.html'><img style='width:300px; height: 300px; border:1px solid black;' src='"+response[i].image+"'/></a>"
+							 +"<a href='../shop/giftyconDetail.do?giftyconCode="+response[i].giftyconCode+"'><img style='width:300px; height: 300px; border:1px solid black;' src='"+response[i].image+"'/></a>"
 							 +"</div>"
-							 +"<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='modal' style=''>"
+							 +"<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style=''>"
 							 +"<i class='fa fa-shopping-cart'></i>Add to cart</a>"
-							 +"<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='modal' style='margin-left:10px;'>"
+							 +"<a href='../shop/giftyconDetail.do?giftyconCode="+response[i].giftyconCode+"' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style='margin-left:10px;'>"
 							 +"<i class='fa fa-shopping-cart'></i>Now Buy</a>"
 							 +"</div>";
 					}
@@ -65,11 +68,11 @@
 
 						str += "<div class='col-md-4 top_brand_left' style='float: left; margin-bottom:30px;'><div class='snipcart-thumb' style='margin-bottom:5px;'>"
 							 +"<h4>"+response[i].giftyconName+"</h4>"
-							 +"<a href='single.html'><img style='width:300px; height: 300px; border:1px solid black;' src='"+response[i].image+"'/></a>"
+							 +"<a href='../shop/giftyconDetail.do?giftyconCode="+response[i].giftyconCode+"'><img style='width:300px; height: 300px; border:1px solid black;' src='"+response[i].image+"'/></a>"
 							 +"</div>"
-							 +"<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='modal' style=''>"
+							 +"<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style=''>"
 							 +"<i class='fa fa-shopping-cart'></i>Add to cart</a>"
-							 +"<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='modal' style='margin-left:10px;'>"
+							 +"<a href='../shop/giftyconDetail.do?giftyconCode="+response[i].giftyconCode+"' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style='margin-left:10px;'>"
 							 +"<i class='fa fa-shopping-cart'></i>Now Buy</a>"
 							 +"</div>";
 					}
@@ -96,11 +99,11 @@
 
 						str += "<div class='col-md-4 top_brand_left' style='float: left; margin-bottom:30px;'><div class='snipcart-thumb' style='margin-bottom:5px;'>"
 							 +"<h4>"+response[i].giftyconName+"</h4>"
-							 +"<a href='single.html'><img style='width:300px; height: 300px; border:1px solid black;' src='"+response[i].image+"'/></a>"
+							 +"<a href='../shop/giftyconDetail.do?giftyconCode="+response[i].giftyconCode+"'><img style='width:300px; height: 300px; border:1px solid black;' src='"+response[i].image+"'/></a>"
 							 +"</div>"
-							 +"<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='modal' style=''>"
+							 +"<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style=''>"
 							 +"<i class='fa fa-shopping-cart'></i>Add to cart</a>"
-							 +"<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='modal' style='margin-left:10px;'>"
+							 +"<a href='../shop/giftyconDetail.do?giftyconCode="+response[i].giftyconCode+"' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style='margin-left:10px;'>"
 							 +"<i class='fa fa-shopping-cart'></i>Now Buy</a>"
 							 +"</div>";
 					}
@@ -127,11 +130,11 @@
 
 						str += "<div class='col-md-4 top_brand_left' style='float: left; margin-bottom:30px;'><div class='snipcart-thumb' style='margin-bottom:5px;'>"
 							 +"<h4>"+response[i].giftyconName+"</h4>"
-							 +"<a href='single.html'><img style='width:300px; height: 300px; border:1px solid black;' src='"+response[i].image+"'/></a>"
+							 +"<a href='../shop/giftyconDetail.do?giftyconCode="+response[i].giftyconCode+"'><img style='width:300px; height: 300px; border:1px solid black;' src='"+response[i].image+"'/></a>"
 							 +"</div>"
-							 +"<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='modal' style=''>"
+							 +"<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style=''>"
 							 +"<i class='fa fa-shopping-cart'></i>Add to cart</a>"
-							 +"<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='modal' style='margin-left:10px;'>"
+							 +"<a href='../shop/giftyconDetail.do?giftyconCode="+response[i].giftyconCode+"' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style='margin-left:10px;'>"
 							 +"<i class='fa fa-shopping-cart'></i>Now Buy</a>"
 							 +"</div>";
 					}
@@ -225,9 +228,12 @@ body{padding-top:20px;}
 .carousel-indicators .active {
 background: #428bca;
 }
+#cbox{
+	font-family: 'Tekton Pro';
+}
 </style>
 <body>
-	<h1 style="text-align: center;"><a style="font-size: 50px; font-weight:bold; color: firebrick;" href="Index.jsp">CBox</a></h1>
+	<h1 style="text-align: center;"><a id="cbox" style="font-size: 50px; font-weight:bold; color: firebrick;" href="Index.jsp">Charie's BOX</a></h1>
 	<div class="luncher">
 		<ul>
 			<li></li>
@@ -274,21 +280,35 @@ background: #428bca;
 	</nav>
 	<!-- 영화 순위 -->
 	<hr>
-	<h3 style="font-size: 30px; text-align: center; padding-top: 20px;"><img src="http://img.cgv.co.kr/R2014/images/title/h4_menu.png"></h3>
+	<!-- <h3 style="font-size: 30px; text-align: center; padding-top: 20px;"><img src="http://img.cgv.co.kr/R2014/images/title/h4_menu.png"></h3> -->
 	<div style="height: 388px; text-align: center;">
 		<div class="top-brands">
 		<div class="container">
-		
-				<small><span style="float: right; padding-bottom: 0px; "><a id="beverageList">음료&nbsp;&nbsp;&nbsp;&nbsp;</a></span></small>							
-				<small><span style="float: right; padding-bottom: 0px;"><a id="snackList">스낵&nbsp;&nbsp;&nbsp;&nbsp;</a></span></small>	
-				<small><span style="float: right; padding-bottom: 0px;"><a id="popcornList">팝콘&nbsp;&nbsp;&nbsp;&nbsp;</a></span></small>
-				<small><span style="float: right; padding-bottom: 0px;"><a id="comboList">콤보&nbsp;&nbsp;&nbsp;&nbsp;</a></span></small>
-
-			<hr>
+			<div style="">
+				<h3 style="text-align: left; padding-left: 10px;">스낵바</h3>
+			</div>
+					<small><span style="float: right; padding-bottom: 0px; "><a id="beverageList">음료&nbsp;&nbsp;&nbsp;&nbsp;</a></span></small>							
+					<small><span style="float: right; padding-bottom: 0px;"><a id="snackList">스낵&nbsp;&nbsp;&nbsp;&nbsp;</a></span></small>	
+					<small><span style="float: right; padding-bottom: 0px;"><a id="popcornList">팝콘&nbsp;&nbsp;&nbsp;&nbsp;</a></span></small>
+					<small><span style="float: right; padding-bottom: 0px;"><a id="comboList">콤보&nbsp;&nbsp;&nbsp;&nbsp;</a></span></small>
+			<hr style="margin-top:15px; width: 1150px;">
 			<div class="agile_top_brands_grids" id="giftycon">
+			
+				<c:forEach var="g" items="${giftyconList}">
+				<div class='col-md-4 top_brand_left' style='float: left; margin-bottom:30px;'>
+					<div class='snipcart-thumb' style='margin-bottom:5px;'>
+						<h4>${g.giftyconName }</h4>
+						<a href='../shop/giftyconDetail.do?giftyconCode=${g.giftyconCode }'><img style='width:300px; height: 300px; border:1px solid black;' src='${g.image }'/></a>
+					</div>
+					<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='modal' style=''>
+					<i class='fa fa-shopping-cart'></i>Add to cart</a>
+					<a href='../shop/giftyconDetail.do?giftyconCode=${g.giftyconCode }' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style='margin-left:10px;'>
+					<i class='fa fa-shopping-cart'></i>Now Buy</a>
+				</div>
+				</c:forEach>
 			</div>
 		</div>
+		</div>
 	</div>	
-	</div>
 </body>
 </html>
