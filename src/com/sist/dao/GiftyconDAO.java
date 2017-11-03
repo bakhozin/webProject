@@ -1,14 +1,19 @@
 package com.sist.dao;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Component;
+
 import com.sist.vo.Giftycon;
 
+
+@Component
 public class GiftyconDAO {
 
 	public Connection getConn(){
@@ -44,21 +49,22 @@ public class GiftyconDAO {
 		ResultSet rs = null;
 		con = getConn();
 
-		String sql = "SELECT * FROM SHOP WHERE GIFTYCONCODE LIKE ?";
+		String sql = "SELECT * FROM GIFTYCON WHERE GIFTYCONCODE LIKE ?";
 		
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, "%"+type+"%");
 			rs = ps.executeQuery();
 			while(rs.next()){
-				Giftycon shop = new Giftycon();
+				Giftycon giftycon = new Giftycon();
 				
-				shop.setGiftyconCode(rs.getString("GIFTYCONCODE"));
-				shop.setName(rs.getString("name"));
-				shop.setContent(rs.getString("content"));
-				shop.setPrice(rs.getInt("price"));
+				giftycon.setGiftyconCode(rs.getString("GIFTYCONCODE"));
+				giftycon.setGiftyconName(rs.getString("GiftyconName"));
+				giftycon.setContent(rs.getString("content"));
+				giftycon.setPrice(rs.getInt("price"));
+				giftycon.setImage(rs.getString("image"));
 				
-				list.add(shop);			
+				list.add(giftycon);			
 			}
 			
 		} catch (SQLException e) {
@@ -86,9 +92,9 @@ public class GiftyconDAO {
 		ResultSet rs = null;
 		con = getConn();
 		
-		Giftycon shop = null;
+		Giftycon giftycon = null;
 		
-		String sql = "SELECT * FROM SHOP GIFTYCONCODE = ?";
+		String sql = "SELECT * FROM GIFTYCON GIFTYCONCODE = ?";
 		
 		try {
 			ps = con.prepareStatement(sql);
@@ -97,11 +103,12 @@ public class GiftyconDAO {
 			rs = ps.executeQuery();
 			
 			if(rs.next()){
-				shop = new Giftycon();
-				shop.setGiftyconCode(rs.getString("giftyconCode"));
-				shop.setName(rs.getString("name"));
-				shop.setContent(rs.getString("content"));
-				shop.setPrice(rs.getInt("price"));
+				giftycon = new Giftycon();
+				giftycon.setGiftyconCode(rs.getString("giftyconCode"));
+				giftycon.setGiftyconName(rs.getString("GiftyconName"));
+				giftycon.setContent(rs.getString("content"));
+				giftycon.setPrice(rs.getInt("price"));
+				giftycon.setImage(rs.getString("image"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -116,6 +123,6 @@ public class GiftyconDAO {
 				e.printStackTrace();
 			}
 		}
-		return shop;
+		return giftycon;
 	}
 }

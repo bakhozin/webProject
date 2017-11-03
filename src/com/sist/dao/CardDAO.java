@@ -6,9 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Component;
+
 import com.sist.vo.Card;
 import com.sist.vo.Giftycon;
 
+@Component
 public class CardDAO {
 	
 	public Connection getConn(){

@@ -7,9 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Component;
+
 import com.sist.vo.Seat;
 import com.sist.vo.Theater;
 
+
+@Component
 public class SeatDAO {
 	
 	public Connection getConn(){
