@@ -194,7 +194,7 @@ background: #428bca;
 		<hr style="margin-top:15px; width: 1150px; font-weight: 2px; ">
 		<div class="agile_top_brands_grids" id="detaildiv">
 			<div id="bleft" style="float: left;">
-				<img alt="" src="${giftycon.image }">
+				<img alt="" src="../image/choo.jpg	">
 			</div>
 			<div id="binfo1" style="float: left;">
 				<table>

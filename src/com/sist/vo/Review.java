@@ -5,10 +5,25 @@ public class Review {
 	private String mid;
 	private String content;
 	private String title;
-	private String comment;
+	private String reply;
 	private double GPA;
+	private String star;
+	private String mcode;  //해당 영화코드에 해당하는 리뷰검색
 	
 	
+	
+	public String getStar() {
+		return star;
+	}
+	public void setStar(String star) {
+		this.star = star;
+	}
+	public String getMcode() {
+		return mcode;
+	}
+	public void setMcode(String mcode) {
+		this.mcode = mcode;
+	}
 	public int getReview_seq() {
 		return review_seq;
 	}
@@ -33,11 +48,12 @@ public class Review {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getComment() {
-		return comment;
+	
+	public String getReply() {
+		return reply;
 	}
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setReply(String reply) {
+		this.reply = reply;
 	}
 	public double getGPA() {
 		return GPA;
