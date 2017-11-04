@@ -27,8 +27,27 @@ public class MovieController {
 		
 		String star = null;
 		
-		rList
+		model.addAttribute("star", star);*/
+
 		
+		
+		
+		return "shopMain.jsp";
+	}
+	
+	@RequestMapping(value={"reviewReg.do"}, method=RequestMethod.GET)
+	public String reviewReg(){
+		
+		
+		
+		
+		return "reviewReg.jsp";
+	}
+	
+	@RequestMapping(value={"reviewReg.do"}, method=RequestMethod.POST)
+	public String reviewReg(Model model,Review r,String mid){
+			
+		String star=null;
 		if(r.getGPA() <= 1){
 			star = "star_score_01.png";
 		}else if(1.0 < r.getGPA() && r.getGPA() <= 2.0){
@@ -51,26 +70,7 @@ public class MovieController {
 			star = "star_score_10.png";
 		};
 		
-		model.addAttribute("star", star);*/
-
-		
-		
-		
-		return "shopMain.jsp";
-	}
-	
-	@RequestMapping(value={"reviewReg.do"}, method=RequestMethod.GET)
-	public String reviewReg(){
-		
-		
-		return "reviewReg.jsp";
-	}
-	
-	@RequestMapping(value={"reviewReg.do"}, method=RequestMethod.POST)
-	public String reviewReg(Model model,Review r,String mid){
-		
-		
-
+		r.setStar(star);
 		rdao.addReview(r, mid);
 		
 		return "redirect:review.jsp";
