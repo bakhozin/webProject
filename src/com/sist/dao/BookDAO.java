@@ -12,7 +12,7 @@ public class BookDAO {
 	
 	public Connection getConn() {
 			
-			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+			String url = "jdbc:oracle:thin:@211.238.142.126:1521:orcl";
 			String user = "CHARLIE";
 			String pwd = "111111";
 			Connection con = null;

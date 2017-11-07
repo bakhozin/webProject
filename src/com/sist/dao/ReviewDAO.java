@@ -14,7 +14,7 @@ public class ReviewDAO {
 	
 	public Connection getConn() {
 			
-			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+			String url = "jdbc:oracle:thin:@211.238.142.126:1521:orcl";
 			String user = "CHARLIE";
 			String pwd = "111111";
 			Connection con = null;
@@ -40,15 +40,18 @@ public class ReviewDAO {
 		
 		System.out.println(mid);
 		
-		String sql = "INSERT INTO REVIEW (REVIEW_SEQ, MID, CONTENT, TITLE, COMMENT, GPA) VALUES ((SELECT NVL(MAX(TO_NUMBER(REVIEW_SEQ)),0)+1 FROM REVIEW), ?, ?, ?, ?, ?)";
+		
+		String sql = "INSERT INTO REVIEW (REVIEW_SEQ, MID, CONTENT, TITLE, REPLY, GPA, STAR, MCODE) VALUES ((SELECT NVL(MAX(TO_NUMBER(REVIEW_SEQ)),0)+1 FROM REVIEW), ?, ?, ?, ?, ?, ?, ?)";
 		con=getConn();
 		try {
 			ps=con.prepareStatement(sql);
 			ps.setString(1, mid);
 			ps.setString(2, r.getContent());
 			ps.setString(3, r.getTitle());
-			ps.setString(4, r.getComment());
+			ps.setString(4, r.getReply());
 			ps.setDouble(5, r.getGPA());
+			ps.setString(6, r.getStar());
+			ps.setString(7, r.getMcode());		
 			
 			af=ps.executeUpdate();
 		} catch (SQLException e) {
@@ -73,6 +76,8 @@ public class ReviewDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		Review r = null;
+
+		
 		String sql = "SELECT * FROM REVIEW WHERE MID=?";
 		con=getConn();
 		try {
@@ -83,9 +88,12 @@ public class ReviewDAO {
 				
 				r.setReview_seq(rs.getInt("REVIEW_SEQ"));
 				r.setTitle(rs.getString("title"));
+				r.setMid(rs.getString("mid"));
 				r.setContent(rs.getString("content"));
-				r.setComment(rs.getString("comment"));
+				r.setReply(rs.getString("reply"));
 				r.setGPA(rs.getDouble("gpa"));
+				r.setStar(rs.getString("star"));
+				r.setMcode(rs.getString("mcode"));
 				
 			}
 		} catch (SQLException e) {
@@ -121,9 +129,12 @@ public class ReviewDAO {
 				
 				r.setReview_seq(rs.getInt("REVIEW_SEQ"));
 				r.setTitle(rs.getString("title"));
+				r.setMid(rs.getString("mid"));
 				r.setContent(rs.getString("content"));
-				r.setComment(rs.getString("comment"));
+				r.setReply(rs.getString("reply"));
 				r.setGPA(rs.getDouble("gpa"));
+				r.setStar(rs.getString("star"));
+				r.setMcode(rs.getString("mcode"));
 				
 			}
 		} catch (SQLException e) {
@@ -149,14 +160,18 @@ public class ReviewDAO {
 		Connection con;
 		PreparedStatement ps = null;
 		int af = 0;
-		String sql = "UPDATE REVIEW SET TITLE=?, CONTENT=?, COMMENT=?, GPA=? WHERE REVIEW_SEQ=?";
+		String sql = "UPDATE REVIEW SET TITLE=?, CONTENT=?, REPLY=?, GPA=?, STAR=?, MCODE=? GET WHERE REVIEW_SEQ=?";
 		con=getConn();
 		try {
 			ps=con.prepareStatement(sql);
 			ps.setString(1, r.getTitle());
 			ps.setString(2, r.getContent());
-			ps.setString(3, r.getComment());
+			ps.setString(3, r.getReply());
 			ps.setDouble(4, r.getGPA());
+			ps.setString(5, r.getStar());
+			ps.setString(6, r.getMcode());	
+			ps.setInt(7, r.getReview_seq());	
+
 			
 			af = ps.executeUpdate();
 		} catch (SQLException e) {
@@ -213,6 +228,8 @@ public class ReviewDAO {
 		ArrayList<Review> rList = null;
 		int startRN = 1 + (pg-1)*10;
 		
+		
+		
 		String sql = "SELECT * FROM (SELECT ROWNUM AS RN, N.* FROM (SELECT * FROM REVIEW WHERE "+field+" LIKE ? ORDER BY TO_NUMBER(REVIEW_SEQ) DESC)N) WHERE RN BETWEEN ? AND ?";
 		con=getConn();
 		try {
@@ -227,12 +244,14 @@ public class ReviewDAO {
 			rList = new ArrayList<>();
 			while(rs.next()) {
 				Review r = new Review();
-				r.setReview_seq(rs.getInt("review_seq"));
+				r.setReview_seq(rs.getInt("REVIEW_SEQ"));
 				r.setTitle(rs.getString("title"));
 				r.setMid(rs.getString("mid"));
 				r.setContent(rs.getString("content"));
-				r.setComment(rs.getString("comment"));
+				r.setReply(rs.getString("reply"));
 				r.setGPA(rs.getDouble("gpa"));
+				r.setStar(rs.getString("star"));
+				r.setMcode(rs.getString("mcode"));
 				
 				rList.add(r);
 			}
