@@ -40,7 +40,7 @@ public class GiftyconDAO {
 	}
 
 	//타입별 상품 리턴 (type: C-콤보  S-스낵  B-음료  M-영화관람권)
-	public ArrayList<Giftycon> getShops(String type){
+	public ArrayList<Giftycon> getGiftycons(String type){
 		
 		ArrayList<Giftycon> list = new ArrayList<Giftycon>();
 
@@ -85,7 +85,7 @@ public class GiftyconDAO {
 	}
 
 	//코드와 일치하는 상품 리턴
-	public Giftycon getShop(String giftyconCode){
+	public Giftycon getGiftycon(String giftyconCode){
 		
 		Connection con = null;
 		PreparedStatement ps = null;

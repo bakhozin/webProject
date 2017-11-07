@@ -8,8 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Component;
+
 import com.sist.vo.Member;
 
+@Component
 public class MemberDAO {
 
 	public Connection getConn() {
@@ -31,7 +34,7 @@ public class MemberDAO {
 		}
 		return con;
 	}
-	
+
 	//회원 전체 조회
 	public ArrayList<Member> gMember() {
 		Connection con = null;
@@ -71,7 +74,7 @@ public class MemberDAO {
 		}
 		return mList;
 	}
-	
+
 	//회원 정보 조회
 	public Member getMember(String mid) {
 		Connection con = null;
@@ -82,11 +85,12 @@ public class MemberDAO {
 		con=getConn();
 		try {
 			ps=con.prepareStatement(sql);
+			ps.setString(1, mid);
 			rs=ps.executeQuery();
 			if(rs.next()) {
 				m = new Member();
 				m.setMid(rs.getString("mid"));
-				m.setPhone(rs.getString("pwd"));
+				m.setPwd(rs.getString("pwd"));
 				m.setName(rs.getString("name"));
 				m.setPhone(rs.getString("phone"));
 				m.setGender(rs.getString("gender"));
@@ -196,4 +200,43 @@ public class MemberDAO {
 		}
 		return af;
 	}
+	//폰번호 조회
+	public Member getPhone(String phone) {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Member m = null;
+		String sql = "SELECT * FROM MEMBER WHERE PHONE=?";
+		con=getConn();
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, phone);
+			rs=ps.executeQuery();
+			if(rs.next()) {
+				m = new Member();
+				m.setMid(rs.getString("mid"));
+				m.setPwd(rs.getString("pwd"));
+				m.setName(rs.getString("name"));
+				m.setPhone(rs.getString("phone"));
+				m.setGender(rs.getString("gender"));
+				m.setBirthday(rs.getString("birthday"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("회원 정보 조회 중 오류 발생");
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close();
+				ps.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				System.out.println("접속해제실패");
+				e.printStackTrace();
+			}
+		}
+		return m;
+	}
+
 }

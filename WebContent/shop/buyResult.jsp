@@ -135,6 +135,92 @@ background: #428bca;
 #binfo2 table{
 	width: 550px;
 	font-family: "나눔바른고딕";
+}
+.messege{
+	width:1000px;
+	margin-top: 30px;
+	margin-left: 40px;
+	margin-bottom: 20px;
+	font-family:'나눔바른고딕';
+	text-align: center;
+}
+.messege span{
+	font-size: 17px;
+	font-weight: bold;
+}
+#res{
+	width:960px;
+	margin-top: 30px;
+	margin-left: 80px;
+	margin-bottom: 20px;
+	font-family:'나눔바른고딕';
+	border-top: 1px solid #79ABFF;
+	border-bottom: 1px solid silver;
+	border-collapse : collapse;	
+}
+#res th{
+	height: 50px;
+	border: thin;
+	background-color: #D9E5FF;
+	text-align: left;
+	padding-left: 20px;
+}
+#res td{
+	border: 1px solid #D9E5FF;
+	border-bottom: 1px solid #79ABFF;
+	text-align: right;
+	padding-right: 50px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bord;
+}
+#res span{
+	font-size: 30px;
+}
+#giftyconInfo{
+	width:1100px;
+	height:300px;
+	border: 1px solid black;
+}
+#giftyconInfo img{
+	width: 300px;
+	height: 280px;
+	float:left;
+}
+#giftyconInfo table{
+	margin-top: 50px;
+}
+#th{
+	width:400px;
+	text-align:center;
+	font-size: 17px;
+	font-family: "나눔바른고딕";
+}
+#td{
+	width:400px;
+	padding-left:15px;
+	text-align:center;
+	font-family: "나눔바른고딕";
+	font-size: 20px;
+}
+#num{
+	margin-top:50px;
+	margin-bottom:20px;
+	width:1100px;
+	height: 50px;
+	background-color: #A81919;
+	color: white;
+	font-family: "나눔바른고딕";
+	text-align: left;
+	padding-left:15px;
+	padding-top:8px;
+	font-size:20px;
+	font-weight: bold;
+}
+#phoneInfo{
+	text-align: left;
+	font-family: "나눔바른고딕";
+}
 </style>
 <body>
 	<h1 style="text-align: center;"><a id="cbox" style="font-size: 50px; font-weight:bold; color: firebrick;" href="Index.jsp">Charie's BOX</a></h1>
@@ -189,57 +275,54 @@ background: #428bca;
 		<div class="top-brands">
 		<div class="container">
 			<div style="">
-				<h3 style="text-align: left; padding-left: 10px;">스낵바</h3>
+				<h3 style="text-align: left; padding-left: 10px;">구매완료</h3>
 			</div>
 		<hr style="margin-top:15px; width: 1150px; font-weight: 2px; ">
-		<div class="agile_top_brands_grids" id="detaildiv">
-			<div id="bleft" style="float: left;">
-				<img alt="" src="${giftycon.image }">
-			</div>
-			<div id="binfo1" style="float: left;">
-				<table>
-					<tr><td><h3 style="text-align: left;">${giftycon.giftyconName }</h3></td></tr>						
-				</table>
-				<hr id="infoline">
-				<table>
-					<tr><td style="width: 50px;"><p style="padding-left: 23px; float : left; text-align: left; padding-top:5px; ">판매가</p></td><td style="width: 100px;" ><p style="padding-right: 40px;"><fmt:formatNumber value="${giftycon.price }"  groupingUsed="true"/>원</p></td></tr>	
-				</table>
-				<hr id="dd" style=" border-style: dashed;">
-				<table>
-					<tr><td style="width: 50px;"><p style="padding-left: 20px; float: left; text-align: left; ">상품설명</p></td><td style="width: 100px;"><p style="padding-right: 40px;">${content1}<br>${content2 }</p></td></tr>
-					<tr><td style="width: 50px;"><p style="padding-left: 20px; float : left; text-align: left;">유효기간</p></td><td style="width: 100px;"><p style="padding-right: 40px;">구매 후 6개월 이내</p></td></tr>	
-					<tr><td style="width: 50px;"><p style="padding-left: 20px; float : left; text-align: left;">상품교환</p></td><td style="width: 100px;"><p style="padding-right: 40px;">관람 예정 극장의 매점</p></td></tr>						
-				</table>
-				<hr id="infoline">
-				<a href='../shop/shopMain.do?type=${giftycon.giftyconCode }' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style='margin-left:10px; float: left;'> <i class='fa fa-shopping-cart'></i>목록으로</a>
-				<a href='../shop/giftyconBuy.do?giftyconCode=${giftycon.giftyconCode }&gift=' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style='margin-left:10px; float: right; margin-right: 7px; '> <i class='fa fa-shopping-cart'></i>Now Buy</a>
-				<a href='../shop/giftyconBuy.do?giftyconCode=${giftycon.giftyconCode }&gift=O' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style='margin-left:10px; float: right; '> <i class='fa fa-shopping-cart'></i>&nbsp&nbsp&nbspGift&nbsp&nbsp&nbsp</a>
-			</div>	
-
-		</div>
-		<hr>
-		<ul>
-			<li style="list-style-type: dosc"><span style="float: left;">기프트콘으로는 매점상품 및 영화관람권을 구매/이용하실 수 있습니다.</span></li>
-			<li style="list-style-type: dosc">
-				<span style="float: left; color:#DB0000;">구매 후 전송 받으신 기프트콘 중,</span><br> 
-				<span style="float: left;"><span style="font-weight:bold;">매점상품:</span> 매점상품은 각 영화관의 매점에서 실제 상품으로 교환하실 수 있습니다.</span><br>
-				<span style="float: left;">(각 영화관 매점에서 기프트콘 제시 > 해당 매점 제품으로 교환)</span><br>
-				<span style="float: left;">콤보 中 팝콘을 고소팝콘 이외의 팝콘으로 바꿀 경우, 추가 비용이 발생합니다.</span><br>
-				<span style="float: left;"><span style="font-weight:bold;">영화관람권:</span> 영화관람권은 홈페이지,모바일, 또는 영화관 매표소를 통해 영화를 예매하실 수 있습니다.</span><br>
-				<span style="float: left;">(홈페이지 빠른예매 > 결제 수단 > '할인/무료/포인트' 선택 > '기프트콘' 선택 > 기프트콘 번호 입력)</span><br>
-			</li>
-			<li style="list-style-type: dosc">
-				<span style="float: left; color:#DB0000;">기프트콘 상품은 일부극장에서 사용이 불가능합니다.</span><br>
-				<span style="float: left;">결제가 완료된 기프트콘 중 사용내역이 전혀 없으신 경우, ‘마이페이지 > My 구매정보 > 매점상품’ 에서 취소하실 수 있습니다. </span><br>
-				<span style="float: left;">(단, 기프트콘 상품은 현금으로 환불은 불가능합니다.)</span><br>
-			</li>
-			<li style="list-style-type: dosc">
-				<span style="float: left; color:#DB0000;">기프트콘은 부분 환불이 불가합니다.</span><br>
-				<span style="float: left;">(예: 3개의 쿠폰을 한 번에 구매하신 경우, 3개 모두 취소만 가능하며, 사용하신 쿠폰이 있는 경우 미사용 쿠폰의 환불은 불가합니다.) </span><br>
-				<span style="float: left;">기프트콘의 사용기한은 기프트콘 발송일로부터 6개월입니다.</span><br>
-				<span style="float: left;">매점상품 기프트콘은 극장매점에서 기프트콘 사용 후 수령한 영수증으로 CJONE 적립이 가능합니다.</span><br>
-			</li>
-		</ul>
+		<div class="buyform">
+				<div class="messege">
+					<h1>구매가 성공적으로 접수되었습니다.</h1>
+					<p><span>${m.name }</span> 고객님 감사합니다.</p>
+					<p>구매하신 기프티콘은 마이페이지 > My Giftycon에서 확인 가능합니다.</p>
+				</div>		
+				<hr id="bline">		
+				<div class="memberinfo" style="margin-left: 20px;">
+					<div  id="num">
+						<p>01 결제정보</p>
+					</div>
+					<div id="giftyconInfo" >
+						<img src="${giftycon.image }">
+						<table>
+							<tr><th id="th">상품</th><th id="th">수량</th><th id="th">결제금액</th></tr>
+						</table>
+						<hr style="width: 700px; border-color:#BDBDBD;">
+						<table>
+							<tr><td id="td">${giftycon.giftyconName }<br></td><td id="td">${amount }</td><td id="td"><fmt:formatNumber value="${total }"  groupingUsed="true"/>원</td></tr>
+						</table>
+					</div>
+				</div>					
+				<hr id="bline">	
+				<div class="memberinfo" style="margin-left: 20px;">
+					<div  id="num">
+						<p>02 주문정보</p>
+					</div>
+					<div id="phoneInfo">
+						<p style="font-size:18px; margin-left: 10px; font-weight: bold;">구매하는 분</p>
+						<p style="font-size:16px; margin-left:10px;">이름 &nbsp&nbsp&nbsp&nbsp &nbsp ${m.name }    &nbsp&nbsp &nbsp|&nbsp&nbsp&nbsp &nbsp  &nbsp
+							<%-- <input type="hidden" id="phone" value=${m.phone } name="buyPhone"> --%>
+						</p>
+						<hr style="border: 1px solid black;">
+						<p style="font-size:18px; margin-left: 10px; font-weight: bold;">사용하는 분</p>
+						<c:forEach var="ga" items="${list }" >
+							<p style="font-size:16px; margin-left:10px;">1 &nbsp&nbsp&nbsp &nbsp휴대폰 번호  &nbsp${ga.recipient }</p>
+							<hr style="border: 1px solid sliver;">
+						</c:forEach>
+						<hr style="border: 1px solid black;">
+					</div>
+					<br>
+					<a href="../member/main.do">홈으로</a>
+					<br><br><br>
+				</div>			
+			</div>		
 		</div>
 		</div>
 	</div>	

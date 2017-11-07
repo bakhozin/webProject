@@ -46,7 +46,7 @@ public class GiftyconAccountDAO {
 		int af = 0;
 		
 		con = getConn();
-		String sql = "INSERT INTO GIFTYCONACCOUNT(G_DEALNUM, GIFTYCONCODE, MID, RECIPIENT, REGDATE, EXPIREDATE) VALUES((select to_number(nvl2((max(to_number(seq))),max(to_number(seq))+1, 1)) from GIFTYCONACCOUNT),?,?,?,?,?)";
+		String sql = "INSERT INTO GIFTYCONACCOUNT(G_DEALNUM, GIFTYCONCODE, MID, RECIPIENT) VALUES((select to_number(nvl2((max(to_number(G_DEALNUM))),max(to_number(G_DEALNUM))+1, 1)) from GIFTYCONACCOUNT),?,?,(select mid from member where phone=?))";
 		
 		try {
 			ps = con.prepareStatement(sql);
@@ -54,8 +54,6 @@ public class GiftyconAccountDAO {
 			ps.setString(1, shopAccount.getGiftyconCode());
 			ps.setString(2, shopAccount.getMid());
 			ps.setString(3, shopAccount.getRecipient());
-			ps.setString(4, shopAccount.getRegdate());
-			ps.setString(5, shopAccount.getExpireDate());
 			
 			af = ps.executeUpdate();
 			

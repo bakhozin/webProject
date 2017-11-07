@@ -81,7 +81,7 @@ public class CardDAO {
 		
 		Card card = null;
 		
-		String sql = "SELECT * FROM CARD CARDNUM = ?";
+		String sql = "SELECT * FROM CARD WHERE CARDNUM = ?";
 		
 		try {
 			ps = con.prepareStatement(sql);
@@ -111,6 +111,5 @@ public class CardDAO {
 		
 		return card;		
 	}
-
 
 }

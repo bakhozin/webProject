@@ -143,6 +143,12 @@
 				}
 			});	
 		});
+		$(".cart").click(function(){
+			event.preventDefault();
+			var txt = $(this).attr("href");
+			
+			alert(txt);
+		});
 	});
 </script>
 	
@@ -241,7 +247,7 @@ background: #428bca;
 				<a class="basket" href="#"><span class="glyphicon glyphicon-shopping-cart"></span>장바구니</a>
 			</li>
 			<li style="padding-right:10px;">
-				<a class="login" href="./joinus/login.jsp"><span class="glyphicon glyphicon-off"></span>로그인</a>
+				<a class="login" href="../shop/login.jsp"><span class="glyphicon glyphicon-off"></span>로그인</a>
 			</li>
 		</ul>
 	</div>
@@ -294,14 +300,15 @@ background: #428bca;
 			<hr style="margin-top:15px; width: 1150px;">
 			<div class="agile_top_brands_grids" id="giftycon">
 			
-				<c:forEach var="g" items="${giftyconList}">
+				<c:forEach var="g" items="${giftyconList}" varStatus="s">
 				<div class='col-md-4 top_brand_left' style='float: left; margin-bottom:30px;'>
 					<div class='snipcart-thumb' style='margin-bottom:5px;'>
 						<h4>${g.giftyconName }</h4>
 						<a href='../shop/giftyconDetail.do?giftyconCode=${g.giftyconCode }'><img style='width:300px; height: 300px; border:1px solid black;' src='${g.image }'/></a>
 					</div>
-					<a href='#' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='modal' style=''>
+					<a href='../shop/giftyconDetail.do?giftyconCode=${g.giftyconCode }' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style='margin-left:10px;'>
 					<i class='fa fa-shopping-cart'></i>Add to cart</a>
+					<!-- <button id="addCart" class='btn btn-danger add-to-cart'>Add to cart</button> -->
 					<a href='../shop/giftyconDetail.do?giftyconCode=${g.giftyconCode }' class='btn btn-danger add-to-cart'data-target='#mcart' data-toggle='' style='margin-left:10px;'>
 					<i class='fa fa-shopping-cart'></i>Now Buy</a>
 				</div>
